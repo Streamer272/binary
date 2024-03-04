@@ -7,6 +7,7 @@ import "./index.css";
 const routes = [
   { path: "/", component: Home },
   { path: "/playground", component: Playground },
+  { path: "/:pathMatch(.*)*", redirect: "/" },
 ];
 
 const router = VueRouter.createRouter({
