@@ -17,16 +17,11 @@
 
       <div v-if="problem" class="flex">
         <div class="flex items-end justify-center flex-col h-full gap-y-2 p-2">
-          <Number
-            :number="problem.a"
-            :options="{ spacing: +spacing, fill: fill }"
-            class="mx-2"
-          />
+          <Number :number="problem.a" :options="options" class="mx-2" />
           <Number
             :number="problem.b"
             :options="{
-              spacing: +spacing,
-              fill: fill,
+              ...options,
               prefix: problem.operator,
             }"
             class="mx-2"
@@ -37,7 +32,7 @@
           <Number
             :data-shown="shown"
             :number="problem.answer"
-            :options="{ spacing: +spacing, fill: fill }"
+            :options="options"
             class="mx-2 data-[shown=false]:opacity-0"
           />
         </div>
@@ -93,7 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { levels, Problem } from "./composables/levels.ts";
 import Number from "./components/Number.vue";
 
@@ -104,6 +99,11 @@ const shown = ref(false);
 const openSettings = ref(false);
 const spacing = ref("4");
 const fill = ref(true);
+const options = computed(() => ({
+  spacing: +spacing.value,
+  fill: fill.value,
+  prefix: undefined,
+}));
 
 function next() {
   problem.value = levels[level.value].generate();

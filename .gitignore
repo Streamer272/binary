@@ -26,3 +26,5 @@ dist-ssr
 bun.lockb
 package-lock.json
 .vscode/
+.firebaserc
+firebase.json
