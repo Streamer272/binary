@@ -13,11 +13,11 @@
 
       <div v-if="!forward" class="flex flex-row-reverse gap-x-2 h-[2.375rem]">
         <div
-          v-for="i in 24 / +spacing"
+          v-for="i in 24 / spacing"
           class="flex flex-row-reverse items-end gap-x-1 border-b-[0.375rem] border-b-emerald-100 border-solid w-fit rounded-md"
         >
           <button
-            v-for="j in +spacing"
+            v-for="j in spacing"
             @click="setBit(i, j)"
             :data-bit="(number & (2 ** (i * 4 + j))).toString()"
             :class="`w-2 ${getBit(i, j) ? 'h-8' : 'h-3'} bg-emerald-100 rounded-t-full`"
@@ -51,11 +51,11 @@ const number = ref(0);
 const forward = ref(true);
 
 function getBit(i: number, j: number) {
-  return number.value & (2 ** ((i - 1) * 4 + j - 1));
+  return number.value & (2 ** ((i - 1) * spacing.value + j - 1));
 }
 
 function setBit(i: number, j: number) {
-  number.value ^= 2 ** ((i - 1) * 4 + j - 1);
+  number.value ^= 2 ** ((i - 1) * spacing.value + j - 1);
 }
 
 function swap() {

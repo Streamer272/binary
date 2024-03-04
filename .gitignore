@@ -28,3 +28,4 @@ package-lock.json
 .vscode/
 .firebaserc
 firebase.json
+*.cache

@@ -16,7 +16,7 @@
     <label for="spacing" class="text-emerald-100">Spacing:</label>
 
     <select
-      v-model="spacing"
+      v-model="stringSpacing"
       name="spacing"
       id="spacing"
       class="text-emerald-100 bg-transparent"
@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { fill, openSettings, spacing } from "../composables/options.ts";
+import { fill, openSettings, stringSpacing } from "../composables/options.ts";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
