@@ -1,4 +1,4 @@
-import { createApp } from "vue/dist/vue.esm-bundler";
+import { createApp } from "vue";
 import Home from "./pages/Home.vue";
 import * as VueRouter from "vue-router";
 import Playground from "./pages/Playground.vue";
