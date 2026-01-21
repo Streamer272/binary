@@ -1,3 +1,3 @@
-# binary
+# Binary
 
 Binary visualizer and exercises.
